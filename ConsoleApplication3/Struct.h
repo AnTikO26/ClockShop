@@ -1,6 +1,7 @@
 #ifndef __STRUCT_H__
 #define __STRUCT_H__
 #include <string>
+using namespace std;
 
 struct itreport // Структура данных категорий расходов
 {
@@ -16,8 +17,8 @@ struct itreport // Структура данных категорий расходов
 
 struct product1 // Структура данных о товарах
 {
-	unsigned short int id;
-	float kolvo; // Количество товара
+	unsigned short int id; 
+	 float kolvo; // Количество товара
 	float price; // Цена товара
 	string name; // Наименование товара
 	string vid; // Вид товара

@@ -3,6 +3,7 @@
 #include "Struct.h"
 using namespace std;
 
+
 class Product  // Товар
 {
 private:
@@ -21,4 +22,6 @@ public:
 	void editP(int); // Редактирование товара
 	void ostatkiP(int); // Сумма остатков
 };
+
+
 #endif

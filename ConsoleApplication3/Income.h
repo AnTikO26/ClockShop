@@ -10,7 +10,7 @@ private:
 	income1* ourIncome; // Указатель на структуру доходы
 	int prIdI; // id объекта дохода
 public:
-	Income();
+	Income(); 
 	~Income();
 	void addIncome(Product&, int); // Создание объекта доходы
 	void addStructI(int); // Выделение памяти под объект дохода

@@ -7,14 +7,61 @@ using namespace std;
 itreport report; // Глобальный объект структуры
 extern float insymm; // Глобальная переменная общей суммы доходов
 extern float ostatki; // Глобальная переменная остатка товаров
+
+void Expenses::dannOtch(int amountEx) // Заполнение объекта структуры данных суммы категорий расхода
+{
+	report.JKX = 0;
+	report.remont = 0;
+	report.reklama = 0;
+	report.straxovka = 0;
+	report.nalog = 0;
+	report.prinadlej = 0;
+	report.zakyp = 0;
+	for (int i = 0; i < amountEx; i++)
+	{
+		if (ourExpenses[i].categories == "ЖКХ")
+		{
+			report.JKX = ourExpenses[i].symm + report.JKX;
+		}
+		if (ourExpenses[i].categories == "Ремонт")
+		{
+			report.remont = ourExpenses[i].symm + report.remont;
+		}
+		if (ourExpenses[i].categories == "Реклама")
+		{
+			report.reklama = ourExpenses[i].symm + report.reklama;
+		}
+		if (ourExpenses[i].categories == "Страховка")
+		{
+			report.straxovka = ourExpenses[i].symm + report.straxovka;
+		}
+		if (ourExpenses[i].categories == "Налог на недвижимость")
+		{
+			report.nalog = ourExpenses[i].symm + report.nalog;
+		}
+		if (ourExpenses[i].categories == "Принадлежности")
+		{
+			report.prinadlej = ourExpenses[i].symm + report.prinadlej;
+		}
+		if (ourExpenses[i].categories == "Закупки")
+		{
+			report.zakyp = ourExpenses[i].symm + report.zakyp;
+		}
+
+		report.symmaP = report.JKX + report.remont + report.reklama + report.straxovka + report.nalog + report.prinadlej;
+	}
+}
+
 Expenses::Expenses() // Конструктор
 {
 	ourExpenses = 0; // Присваивает указателю на структуру нулевое значение
 }
+
 Expenses::~Expenses() // Деструктор
 {
 	delete[] ourExpenses;
 }
+
 void Expenses::addStructE(int amount) // Выделение памяти под объект структуры
 {
 	if (amount == 0)
@@ -33,6 +80,7 @@ void Expenses::addStructE(int amount) // Выделение памяти под объект структуры
 		ourExpenses = tempObjE;
 	}
 }
+
 void Expenses::addExpenses(int amount) // Добавление данных в объект структуры
 {
 	int date;
@@ -176,6 +224,8 @@ void Expenses::addExpenses(int amount) // Добавление данных в объект структуры
 
 	}
 }
+
+
 void Expenses::showE(int amount) // Вывод таблицы расходов
 {
 	cout << setw(10) << "Месяц " << setw(25) << "Получатель" << setw(25) << "Сумма" << setw(25) << "Категории" << endl;
@@ -186,49 +236,7 @@ void Expenses::showE(int amount) // Вывод таблицы расходов
 		cout << "--------------------------------------------------------------------------------------" << endl;
 	}
 }
-void Expenses::dannOtch(int amountEx) // Заполнение объекта структуры данных суммы категорий расхода
-{
-	report.JKX = 0;
-	report.remont = 0;
-	report.reklama = 0;
-	report.straxovka = 0;
-	report.nalog = 0;
-	report.prinadlej = 0;
-	report.zakyp = 0;
-	for (int i = 0; i < amountEx; i++)
-	{
-		if (ourExpenses[i].categories == "ЖКХ")
-		{
-			report.JKX = ourExpenses[i].symm + report.JKX;
-		}
-		if (ourExpenses[i].categories == "Ремонт")
-		{
-			report.remont = ourExpenses[i].symm + report.remont;
-		}
-		if (ourExpenses[i].categories == "Реклама")
-		{
-			report.reklama = ourExpenses[i].symm + report.reklama;
-		}
-		if (ourExpenses[i].categories == "Страховка")
-		{
-			report.straxovka = ourExpenses[i].symm + report.straxovka;
-		}
-		if (ourExpenses[i].categories == "Налог на недвижимость")
-		{
-			report.nalog = ourExpenses[i].symm + report.nalog;
-		}
-		if (ourExpenses[i].categories == "Принадлежности")
-		{
-			report.prinadlej = ourExpenses[i].symm + report.prinadlej;
-		}
-		if (ourExpenses[i].categories == "Закупки")
-		{
-			report.zakyp = ourExpenses[i].symm + report.zakyp;
-		}
 
-		report.symmaP = report.JKX + report.remont + report.reklama + report.straxovka + report.nalog + report.prinadlej;
-	}
-}
 void Expenses::purch(Product& objectPr, int& amountPr, int amountEx) // Закупка товаров
 {
 	string pName;
@@ -236,7 +244,7 @@ void Expenses::purch(Product& objectPr, int& amountPr, int amountEx) // Закупка 
 	int date;
 	bool proverka = true;
 	cout << "Введите название товара: ";
-	cin >> pName;
+	cin >> pName; 
 	for (int i = 0; i < amountPr; i++)
 	{
 		if (pName == objectPr.ourProduct1[i].name) // Проверка, существует ли товар
@@ -260,7 +268,7 @@ void Expenses::purch(Product& objectPr, int& amountPr, int amountEx) // Закупка 
 		cin >> objectPr.ourProduct1[amountPr].price;
 		amountPr++;
 	}
-
+	
 	cout << "Месяц:" << endl;
 	cout << "1. Январь" << endl;
 	cout << "2. Февраль" << endl;
@@ -351,8 +359,9 @@ void Expenses::purch(Product& objectPr, int& amountPr, int amountEx) // Закупка 
 	cout << "Введите сумму расхода: ";
 	cin >> ourExpenses[amountEx].symm;
 	ourExpenses[amountEx].categories = "Закупки";
-
+	
 }
+
 void Expenses::annualReport() // Вывод годового отчета
 {
 	cout << "Расход" << endl;

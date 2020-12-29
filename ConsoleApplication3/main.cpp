@@ -1,3 +1,5 @@
+
+
 #include "Product.h"
 #include "Income.h"
 #include "Expenses.h"
@@ -24,17 +26,17 @@ int main()
 
 	do{ // Цикл меню программю
 		menu(); // Вызов функции, отвечающей выводу основного меню программы
-		cin >> a;
-		system("cls"); // Очистка экрана
+		 cin >> a;
+		 system("cls"); // Очистка экрана
 
 		switch (a)
 		{
 		case  1:
-		{
+		{			
 				   objectPr.addStruct(productAmount); // Вызов метода объекта класса Product
 				   objectPr.addProduct(productAmount);
 				   productAmount++;
-				   break;
+					 break;
 		}
 
 		case  2:
@@ -56,7 +58,7 @@ int main()
 			break;
 		case  5:
 		{
-
+				   
 				   int deistvie;
 				   punkt5(); // Вызов функции, отвечающей за вывод меню действия с товарами
 				   cin >> deistvie;
@@ -72,7 +74,7 @@ int main()
 							 else {
 								 cout << "Нет товаров" << endl;
 							 }
-							 break;
+							break;
 				   }
 				   case 2:
 				   {
@@ -98,10 +100,10 @@ int main()
 			objectEx.showE(expensesAmount);
 			break;
 		case  8:
-			objectEx.dannOtch(expensesAmount);
-			objectIn.itSymm();
-			objectPr.ostatkiP(productAmount);
-			objectEx.annualReport();
+						objectEx.dannOtch(expensesAmount);
+						objectIn.itSymm();
+						objectPr.ostatkiP(productAmount);
+						objectEx.annualReport();
 			break;
 		case  0:
 			return 0;
@@ -117,4 +119,3 @@ int main()
 
 	return 0;
 }
-

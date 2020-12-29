@@ -20,7 +20,7 @@ Income::~Income()
 
 void Income::addStructI(int amount) // Выделяем память под объект структуры
 {
-	ourIncome = new income1[amount + 1]; // выделение памяти для первой структуры
+		ourIncome = new income1[amount + 1]; // выделение памяти для первой структуры
 }
 
 void Income::addIncome(Product &objectPr, int amount) // Заполнение объекта структуры
@@ -137,12 +137,15 @@ void Income::addIncome(Product &objectPr, int amount) // Заполнение объекта стру
 			}
 		}
 	}
-
+				
 	if (proverka == true)
 	{
 		cout << "id товара не найден" << endl;
 	}
-}
+	}
+
+
+
 
 void Income::showI() // Вывод таблицы доходов
 {
