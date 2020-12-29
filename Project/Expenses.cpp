@@ -175,3 +175,13 @@ void Expenses::addExpenses(int amount) // Добавление данных в объект структуры
 
 	}
 }
+void Expenses::showE(int amount) // Вывод таблицы расходов
+{
+	cout << setw(10) << "Месяц " << setw(25) << "Получатель" << setw(25) << "Сумма" << setw(25) << "Категории" << endl;
+	cout << "--------------------------------------------------------------------------------------" << endl;
+	for (int i = 0; i < amount; i++)
+	{
+		cout << setw(10) << ourExpenses[i].data << setw(25) << ourExpenses[i].recipient << setw(25) << ourExpenses[i].symm << setw(25) << ourExpenses[i].categories << endl;
+		cout << "--------------------------------------------------------------------------------------" << endl;
+	}
+}
