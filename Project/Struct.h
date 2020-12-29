@@ -13,6 +13,7 @@ struct itreport // Структура данных категорий расходов
 	float zakyp; // Закупка
 	float symmaP; // Общая сумма доходов
 };
+
 struct product1 // Структура данных о товарах
 {
 	unsigned short int id;

@@ -31,7 +31,9 @@ int main()
 		{
 		case  1:
 		{
-
+				   objectPr.addStruct(productAmount); // Вызов метода объекта класса Product
+				   objectPr.addProduct(productAmount);
+				   productAmount++;
 				   break;
 		}
 
@@ -58,10 +60,11 @@ int main()
 
 			break;
 		case  6:
-
+			objectIn.showI();
+			cout << endl;
 			break;
 		case  7:
-
+			objectEx.showE(expensesAmount);
 			break;
 		case  8:
 
