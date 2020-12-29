@@ -16,6 +16,15 @@ Product::~Product()
 	delete[] ourProduct;
 }
 
+void Product::ostatkiP(int amount) // Сумма остатков товара
+{
+	ostatki = 0;
+	for (int i = 0; i < amount; i++)
+	{
+		ostatki = ostatki + (ourProduct[i].kolvo * ourProduct[i].price);
+	}
+}
+
 
 void Product::copyProd(int amount) // Копирование данных основного объекта структуры во временный
 {
@@ -119,6 +128,139 @@ void Product::showP(int amount) // Вывод объектов структуры
 			<< "Цена товара: " << ourProduct[i].price << '\n'
 			<< "=================================\n";
 	}
+}
+
+void Product::editP(int amount) // Редактирование объета структуры
+{
+	int idred, punct;
+
+	cout << "|---------------------------|" << endl;
+	cout << "|Пункты редактирования:     |" << endl;
+	cout << "|---------------------------|" << endl;
+	cout << "|1. Наименование            |" << endl;
+	cout << "|---------------------------|" << endl;
+	cout << "|2. Вид                     |" << endl;
+	cout << "|---------------------------|" << endl;
+	cout << "|3. Количество              |" << endl;
+	cout << "|---------------------------|" << endl;
+	cout << "|4. Цена                    |" << endl;
+	cout << "|---------------------------|" << endl;
+	cout << "|0. Вернуться в меню        |" << endl;
+	cout << "|---------------------------|" << endl;
+	cout << "Введите пункт, который хотите отредактировать у товара: ";
+	cin >> punct;
+
+	system("cls");
+
+	switch (punct)
+	{
+	case 1:
+	{
+			  string rename;
+			  bool proverka = true;
+			  showP(amount);
+			  cout << "Введите id товара: ";
+			  cin >> idred;
+			  cout << endl;
+			  for (int i = 0; i < amount; i++)
+			  {
+				  if (idred == ourProduct[i].id) // Существует ли товар
+				  {
+					  cout << "Введите новое наименование товара: ";
+					  cin >> rename;
+					  ourProduct[i].name = rename;
+					  cout << "Наименование изменено" << endl;
+					  proverka = false;
+				  }
+			  }
+			  if (proverka == true)
+			  {
+				  cout << "id не найден" << endl;
+			  }
+			  break;
+	}
+	case 2:
+	{
+			  string revid;
+			  bool proverka = true;
+			  showP(amount);
+			  cout << "Введите id товара: ";
+			  cin >> idred;
+			  cout << endl;
+			  for (int i = 0; i < amount; i++)
+			  {
+				  if (idred == ourProduct[i].id)
+				  {
+					  cout << "Введите новый вид товара: ";
+					  cin >> revid;
+					  ourProduct[i].vid = revid;
+					  cout << "Вид товара изменен" << endl;
+					  proverka = false;
+				  }
+			  }
+			  if (proverka == true)
+			  {
+				  cout << "id не найден" << endl;
+			  }
+			  break;
+	}
+	case 3:
+	{
+			  float rekolvo;
+			  bool proverka = true;
+			  showP(amount);
+			  cout << "Введите id товара: ";
+			  cin >> idred;
+			  cout << endl;
+			  for (int i = 0; i < amount; i++)
+			  {
+				  if (idred == ourProduct[i].id)
+				  {
+					  cout << "Введите новое количество товара: ";
+					  cin >> rekolvo;
+					  ourProduct[i].kolvo = rekolvo;
+					  cout << "Количество товара изменено" << endl;
+					  proverka = false;
+				  }
+			  }
+			  if (proverka == true)
+			  {
+				  cout << "id не найден" << endl;
+			  }
+			  break;
+	}
+	case 4:
+	{
+			  float reprice;
+			  bool proverka = true;
+			  showP(amount);
+			  cout << "Введите id товара: ";
+			  cin >> idred;
+			  cout << endl;
+			  for (int i = 0; i < amount; i++)
+			  {
+				  if (idred == ourProduct[i].id)
+				  {
+					  cout << "Введите новую цену товара: ";
+					  cin >> reprice;
+					  ourProduct[i].price = reprice;
+					  cout << "Цена товара изменена" << endl;
+					  proverka = false;
+				  }
+			  }
+			  if (proverka == true)
+			  {
+				  cout << "id не найден" << endl;
+			  }
+			  break;
+	}
+
+		system("pause");
+	default:
+		cout << "Такого действия не существует" << endl;
+		break;
+	}
+
 }
 
 	
