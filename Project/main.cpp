@@ -36,10 +36,14 @@ int main()
 		}
 
 		case  2:
-
+			objectEx.addStructE(expensesAmount);  //Вызов метода объекта класса Expenses
+			objectEx.addExpenses(expensesAmount);
+			expensesAmount++;
 			break;
 		case  3:
-
+			objectPr.copyProd(productAmount);
+			objectIn.addIncome(objectPr, productAmount); //Вызов метода объекта класса Income
+			objectPr.recopyProd(productAmount);
 			break;
 		case  4:
 
