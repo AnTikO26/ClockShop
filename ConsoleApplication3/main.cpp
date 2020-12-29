@@ -1,5 +1,4 @@
-
-
+// realese v 1.0
 #include "Product.h"
 #include "Income.h"
 #include "Expenses.h"
