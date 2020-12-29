@@ -48,16 +48,47 @@ int main()
 			objectPr.recopyProd(productAmount);
 			break;
 		case  4:
-
+			objectEx.addStructE(expensesAmount);
+			objectPr.copyProd(productAmount);
+			objectEx.purch(objectPr, productAmount, expensesAmount);
+			objectPr.recopyProd(productAmount);
+			expensesAmount++;
 			break;
 		case  5:
 		{
 
-		default:
-			cout << "Такой операции не существует" << endl;
-			break;
-		}
+				   int deistvie;
+				   punkt5(); // Вызов функции, отвечающей за вывод меню действия с товарами
+				   cin >> deistvie;
+				   system("cls");
 
+				   switch (deistvie)
+				   {
+				   case 1:
+				   {
+							 if (productAmount != 0){
+								 objectPr.showP(productAmount);
+							 }
+							 else {
+								 cout << "Нет товаров" << endl;
+							 }
+							 break;
+				   }
+				   case 2:
+				   {
+							 objectPr.editP(productAmount);
+							 break;
+				   }
+				   case 0:
+				   {
+							 break;
+				   }
+					   system("pause");
+				   default:
+					   cout << "Такой операции не существует" << endl;
+					   break;
+				   }
+		}
 			break;
 		case  6:
 			objectIn.showI();
@@ -67,13 +98,16 @@ int main()
 			objectEx.showE(expensesAmount);
 			break;
 		case  8:
-
+			objectEx.dannOtch(expensesAmount);
+			objectIn.itSymm();
+			objectPr.ostatkiP(productAmount);
+			objectEx.annualReport();
 			break;
 		case  0:
 			return 0;
 			break;
-		
-		//default:
+
+		default:
 			cout << "Такой операции не существует" << endl;
 			break;
 		}
